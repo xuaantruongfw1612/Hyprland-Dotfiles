@@ -1,0 +1,34 @@
+2025/09/10-15:11:48.911 a5a Reusing MANIFEST /home/truong/.config/microsoft-edge/Default/IndexedDB/https_chat.zalo.me_0.indexeddb.leveldb/MANIFEST-000001
+2025/09/10-15:11:48.911 a5a Recovering log #3
+2025/09/10-15:11:48.925 a5a Reusing old log /home/truong/.config/microsoft-edge/Default/IndexedDB/https_chat.zalo.me_0.indexeddb.leveldb/000003.log 
+2025/09/10-15:11:50.627 a59 Level-0 table #5: started
+2025/09/10-15:11:50.643 a59 Level-0 table #5: 1670993 bytes OK
+2025/09/10-15:11:50.646 a59 Delete type=0 #3
+2025/09/10-15:11:51.238 a59 Level-0 table #7: started
+2025/09/10-15:11:51.264 a59 Level-0 table #7: 962060 bytes OK
+2025/09/10-15:11:51.266 a59 Delete type=0 #4
+2025/09/10-15:11:51.267 a59 Compacting 1@1 + 1@2 files
+2025/09/10-15:11:51.289 a59 Generated table #8@1: 21817 keys, 1093659 bytes
+2025/09/10-15:11:51.290 a59 Compacted 1@1 + 1@2 files => 1093659 bytes
+2025/09/10-15:11:51.291 a59 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/09/10-15:11:51.291 a59 Delete type=2 #5
+2025/09/10-15:11:51.291 a59 Delete type=2 #7
+2025/09/10-15:11:52.412 a59 Level-0 table #10: started
+2025/09/10-15:11:52.437 a59 Level-0 table #10: 1397130 bytes OK
+2025/09/10-15:11:52.438 a59 Delete type=0 #6
+2025/09/10-15:11:52.451 a59 Compacting 1@1 + 1@2 files
+2025/09/10-15:11:52.474 a59 Generated table #11@1: 29417 keys, 1861421 bytes
+2025/09/10-15:11:52.474 a59 Compacted 1@1 + 1@2 files => 1861421 bytes
+2025/09/10-15:11:52.476 a59 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/09/10-15:35:16.984 a5a Level-0 table #13: started
+2025/09/10-15:35:17.011 a5a Level-0 table #13: 1386587 bytes OK
+2025/09/10-15:35:17.014 a5a Delete type=0 #9
+2025/09/10-15:35:17.014 a5a Delete type=2 #8
+2025/09/10-15:35:17.014 a5a Delete type=2 #10
+2025/09/10-15:35:48.937 a59 Compacting 1@1 + 1@2 files
+2025/09/10-15:35:48.975 a59 Generated table #14@1: 24123 keys, 2163377 bytes
+2025/09/10-15:35:48.981 a59 Generated table #15@1: 12527 keys, 225279 bytes
+2025/09/10-15:35:48.981 a59 Compacted 1@1 + 1@2 files => 2388656 bytes
+2025/09/10-15:35:48.982 a59 compacted to: files[ 0 0 2 0 0 0 0 ]
+2025/09/10-15:35:48.983 a59 Delete type=2 #13
+2025/09/10-15:35:48.983 a59 Delete type=2 #11

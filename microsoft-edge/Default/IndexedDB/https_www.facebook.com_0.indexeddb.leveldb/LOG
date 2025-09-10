@@ -1,0 +1,15 @@
+2025/09/10-07:44:48.391 4d3 Reusing MANIFEST /home/truong/.config/microsoft-edge/Default/IndexedDB/https_www.facebook.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/09/10-07:44:48.391 4d3 Recovering log #20
+2025/09/10-07:44:48.418 4d3 Reusing old log /home/truong/.config/microsoft-edge/Default/IndexedDB/https_www.facebook.com_0.indexeddb.leveldb/000020.log 
+2025/09/10-07:44:49.351 4d3 Level-0 table #26: started
+2025/09/10-07:44:49.371 4d3 Level-0 table #26: 2014974 bytes OK
+2025/09/10-07:44:49.373 4d3 Delete type=0 #20
+2025/09/10-07:44:49.391 4d5 Compacting 1@1 + 2@2 files
+2025/09/10-07:44:49.415 4d5 Generated table #27@1: 25667 keys, 2160930 bytes
+2025/09/10-07:44:49.424 4d5 Generated table #28@1: 1632 keys, 2127260 bytes
+2025/09/10-07:44:49.431 4d5 Generated table #29@1: 4356 keys, 643538 bytes
+2025/09/10-07:44:49.431 4d5 Compacted 1@1 + 2@2 files => 4931728 bytes
+2025/09/10-07:44:49.432 4d5 compacted to: files[ 0 0 3 0 0 0 0 ]
+2025/09/10-07:44:49.432 4d5 Delete type=2 #23
+2025/09/10-07:44:49.432 4d5 Delete type=2 #26
+2025/09/10-07:44:49.432 4d5 Delete type=2 #22

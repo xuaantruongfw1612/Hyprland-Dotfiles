@@ -1,0 +1,15 @@
+2025/09/10-07:51:20.201 5 Reusing MANIFEST /home/truong/.config/microsoft-edge/Default/Local Storage/leveldb/MANIFEST-000001
+2025/09/10-07:51:20.205 5 Recovering log #72
+2025/09/10-07:51:20.205 5 Reusing old log /home/truong/.config/microsoft-edge/Default/Local Storage/leveldb/000072.log 
+2025/09/10-07:53:20.964 7 Level-0 table #76: started
+2025/09/10-07:53:20.985 7 Level-0 table #76: 120059 bytes OK
+2025/09/10-07:53:20.989 7 Delete type=0 #72
+2025/09/10-07:53:20.990 7 Compacting 4@0 + 1@1 files
+2025/09/10-07:53:21.012 7 Generated table #77@0: 598 keys, 487305 bytes
+2025/09/10-07:53:21.013 7 Compacted 4@0 + 1@1 files => 487305 bytes
+2025/09/10-07:53:21.015 7 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/09/10-07:53:21.017 7 Delete type=2 #73
+2025/09/10-07:53:21.017 7 Delete type=2 #68
+2025/09/10-07:53:21.017 7 Delete type=2 #76
+2025/09/10-07:53:21.018 7 Delete type=2 #66
+2025/09/10-07:53:21.018 7 Delete type=2 #70

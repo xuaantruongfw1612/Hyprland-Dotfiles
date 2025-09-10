@@ -1,0 +1,27 @@
+2025/09/10-15:11:47.096 a58 Reusing MANIFEST /home/truong/.config/microsoft-edge/Default/Local Extension Settings/odfafepnkmbhccpbejgmiehpchacaeak/MANIFEST-000001
+2025/09/10-15:11:47.097 a58 Recovering log #27
+2025/09/10-15:11:47.097 a58 Reusing old log /home/truong/.config/microsoft-edge/Default/Local Extension Settings/odfafepnkmbhccpbejgmiehpchacaeak/000027.log 
+2025/09/10-15:12:26.156 a59 Level-0 table #31: started
+2025/09/10-15:12:26.168 a59 Level-0 table #31: 4558843 bytes OK
+2025/09/10-15:12:26.170 a59 Delete type=0 #27
+2025/09/10-15:12:26.171 a59 Compacting 4@0 + 4@1 files
+2025/09/10-15:12:26.181 a59 Generated table #32@0: 6 keys, 2571783 bytes
+2025/09/10-15:12:26.194 a59 Generated table #33@0: 7 keys, 3092932 bytes
+2025/09/10-15:12:26.213 a59 Generated table #34@0: 12 keys, 2183076 bytes
+2025/09/10-15:12:26.215 a59 Generated table #35@0: 3 keys, 185096 bytes
+2025/09/10-15:12:26.215 a59 Compacted 4@0 + 4@1 files => 8032887 bytes
+2025/09/10-15:12:26.216 a59 compacted to: files[ 0 4 1 0 0 0 0 ]
+2025/09/10-15:12:26.216 a59 Delete type=2 #23
+2025/09/10-15:12:26.216 a59 Delete type=2 #28
+2025/09/10-15:12:26.216 a59 Delete type=2 #26
+2025/09/10-15:12:26.216 a59 Delete type=2 #20
+2025/09/10-15:12:26.216 a59 Delete type=2 #21
+2025/09/10-15:12:26.216 a59 Delete type=2 #31
+2025/09/10-15:12:26.216 a59 Delete type=2 #18
+2025/09/10-15:12:26.216 a59 Delete type=2 #19
+2025/09/10-15:13:24.609 a59 Level-0 table #37: started
+2025/09/10-15:13:24.622 a59 Level-0 table #37: 4653505 bytes OK
+2025/09/10-15:13:24.624 a59 Delete type=0 #30
+2025/09/10-15:13:28.176 a58 Level-0 table #39: started
+2025/09/10-15:13:28.224 a58 Level-0 table #39: 5596395 bytes OK
+2025/09/10-15:13:28.226 a58 Delete type=0 #36

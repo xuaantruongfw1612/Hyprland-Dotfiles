@@ -1,0 +1,17 @@
+2025/09/09-23:26:41.640 3a65 Creating DB /home/truong/.config/microsoft-edge/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb since it was missing.
+2025/09/09-23:26:41.643 3a65 Reusing MANIFEST /home/truong/.config/microsoft-edge/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/09/09-23:29:17.291 3a65 Level-0 table #5: started
+2025/09/09-23:29:17.320 3a65 Level-0 table #5: 1086745 bytes OK
+2025/09/09-23:29:17.323 3a65 Delete type=0 #3
+2025/09/09-23:30:28.249 3a65 Level-0 table #7: started
+2025/09/09-23:30:28.258 3a65 Level-0 table #7: 527821 bytes OK
+2025/09/09-23:30:28.260 3a65 Delete type=0 #4
+2025/09/09-23:30:28.261 3a65 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2025/09/09-23:30:28.261 3a65 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x06\x01 \x03\x00\x00\x00\x00\x00\x00\xf0?\x00\x04\x02\x01\x17\x00s\x00e\x00r\x00v\x00i\x00c\x00e\x00:\x00t\x00o\x00p\x00b\x00a\x00r\x00:\x00f\x00a\x00l\x00l\x00b\x00a\x00c\x00k\x03\x00\x00\x00\x00\x00\x00\xf0?' @ 3816 : 1
+2025/09/09-23:30:28.261 3a65 Compacting 1@1 + 1@2 files
+2025/09/09-23:30:28.274 3a65 Generated table #8@1: 318 keys, 74942 bytes
+2025/09/09-23:30:28.274 3a65 Compacted 1@1 + 1@2 files => 74942 bytes
+2025/09/09-23:30:28.275 3a65 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/09/09-23:30:28.276 3a65 Delete type=2 #5
+2025/09/09-23:30:28.276 3a65 Delete type=2 #7
+2025/09/09-23:30:28.277 3a65 Manual compaction at level-1 from '\x00\x06\x01 \x03\x00\x00\x00\x00\x00\x00\xf0?\x00\x04\x02\x01\x17\x00s\x00e\x00r\x00v\x00i\x00c\x00e\x00:\x00t\x00o\x00p\x00b\x00a\x00r\x00:\x00f\x00a\x00l\x00l\x00b\x00a\x00c\x00k\x03\x00\x00\x00\x00\x00\x00\xf0?' @ 3816 : 1 .. (end); will stop at (end)

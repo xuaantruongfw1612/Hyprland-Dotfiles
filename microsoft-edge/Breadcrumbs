@@ -1,0 +1,111 @@
+0:00:21 Tab2 StartNav18 #renderer-user #link
+0:00:21 Tab2 FinishNav18
+0:00:21 Tab2 FinishNav17
+0:00:21 Tab2 StartNav19 #renderer-user #auto_subframe
+0:00:21 Tab2 StartNav20 #renderer-user #auto_subframe
+0:00:21 Tab2 FinishNav19
+0:00:21 Tab2 FinishNav20
+0:00:22 Tab2 StartNav21 #renderer-script #auto_subframe
+0:00:22 Tab2 FinishNav21
+0:00:22 Tab2 PageLoad
+0:00:22 Tab2 StartNav22 #renderer-script #auto_subframe
+0:00:22 Tab2 FinishNav22
+0:00:22 Tab2 PageLoad
+0:00:22 Tab2 StartNav23 #renderer-script #auto_subframe
+0:00:22 Tab2 FinishNav23
+0:00:22 Tab2 PageLoad
+0:00:22 Tab2 StartNav24 #renderer-script #auto_subframe
+0:00:22 Tab2 FinishNav24
+0:00:22 Tab2 PageLoad
+0:00:22 Tab2 StartNav25 #renderer-script #auto_subframe
+0:00:22 Tab2 FinishNav25
+0:00:22 Tab2 PageLoad
+0:00:22 Tab2 StartNav26 #renderer-script #auto_subframe
+0:00:22 Tab2 FinishNav26
+0:00:22 Tab2 PageLoad
+0:00:22 Tab2 PageLoad
+0:00:22 Tab2 PageLoad
+0:00:22 Tab2 PageLoad
+0:00:30 Microsoft.Clipboard.WriteText
+0:00:30 Tab2 StartNav27 #renderer-user #link
+0:00:30 Tab2 FinishNav27
+0:00:30 Widget Closed: StatusBubble
+0:00:39 Tab2 StartNav28 #renderer-user #link
+0:00:39 Tab2 FinishNav28
+0:00:48 Tab2 StartNav29 #renderer-user #link
+0:00:48 Tab2 FinishNav29
+0:00:49 Tab2 StartNav30 #renderer-script #link
+0:00:49 Tab2 FinishNav30
+0:04:53 Tab2 StartNav31 #renderer-user #link
+0:04:53 Tab2 FinishNav31
+0:04:53 Tab2 StartNav32 #renderer-user #link
+0:04:53 Tab2 FinishNav32
+0:07:36 Widget Closed: StatusBubble
+0:26:46 Browser1 Switch from Tab2 to Tab1 at 0
+0:26:46 SwitchTab_Click
+0:26:47 Browser1 Switch from Tab1 to Tab2 at 1
+0:26:47 SwitchTab_Click
+0:26:50 Tab2 StartNav33 #renderer-user #link
+0:26:50 Tab2 FinishNav33
+0:26:51 Tab2 StartNav34 #renderer-user #auto_subframe
+0:26:51 Tab2 StartNav35 #renderer-user #auto_subframe
+0:26:51 Tab2 FinishNav35
+0:26:51 Tab2 FinishNav34
+0:26:52 Tab2 StartNav36 #renderer-script #auto_subframe
+0:26:52 Tab2 FinishNav36
+0:26:52 Tab2 PageLoad
+0:26:52 Tab2 StartNav37 #renderer-user #auto_subframe
+0:26:52 Tab2 FinishNav37 ERR_ABORTED
+0:26:52 Tab2 StartNav38 #renderer-user #link
+0:26:52 Tab2 FinishNav38
+0:26:52 Tab2 StartNav39 #renderer-script #auto_subframe
+0:26:52 Tab2 FinishNav39
+0:26:52 Tab2 PageLoad
+0:26:52 Tab2 StartNav40 #renderer-user #auto_subframe
+0:26:52 Tab2 FinishNav40 ERR_ABORTED
+0:26:52 Tab2 StartNav41 #renderer-user #auto_subframe
+0:26:52 Tab2 StartNav42 #renderer-user #auto_subframe
+0:26:52 Tab2 FinishNav41
+0:26:52 Tab2 FinishNav42
+0:26:52 Tab2 StartNav43 #renderer-script #auto_subframe
+0:26:52 Tab2 FinishNav43
+0:26:52 Tab2 PageLoad
+0:26:52 Tab2 StartNav44 #renderer-script #auto_subframe
+0:26:52 Tab2 FinishNav44
+0:26:52 Tab2 PageLoad
+0:26:52 Tab2 PageLoad
+0:26:52 Tab2 PageLoad
+0:26:52 Tab2 PageLoad
+0:26:52 Tab2 PageLoad
+0:26:53 Tab2 StartNav45 #renderer-script #auto_subframe
+0:26:53 Tab2 FinishNav45
+0:26:53 Tab2 PageLoad
+0:26:53 Tab2 StartNav46 #renderer-script #auto_subframe
+0:26:53 Tab2 FinishNav46
+0:26:53 Tab2 PageLoad
+0:26:54 Tab2 StartNav47 #renderer-user #link
+0:26:54 Tab2 FinishNav47
+0:26:54 Tab2 StartNav48 #renderer-user #link
+0:26:54 Tab2 FinishNav48
+0:26:58 Microsoft.Clipboard.WriteText
+0:26:58 Tab2 StartNav49 #renderer-user #link
+0:26:58 Tab2 FinishNav49
+0:27:03 Tab2 StartNav50 #renderer-user #link
+0:27:03 Tab2 FinishNav50
+0:27:03 Widget Closed: StatusBubble
+0:27:05 Tab2 StartNav51 #renderer-user #link
+0:27:05 Tab2 FinishNav51
+0:27:06 Microsoft.Clipboard.WriteText
+0:27:08 Tab2 StartNav52 #renderer-user #link
+0:27:08 Tab2 FinishNav52
+0:27:10 Tab2 StartNav53 #renderer-user #link
+0:27:10 Tab2 FinishNav53
+0:27:11 Tab2 StartNav54 #renderer-user #link
+0:27:11 Tab2 FinishNav54
+0:27:15 Tab2 StartNav55 #renderer-user #link
+0:27:15 Tab2 FinishNav55
+0:27:25 Tab2 StartNav56 #renderer-script #link
+0:27:25 Tab2 FinishNav56
+0:27:26 Tab2 StartNav57 #renderer-script #link
+0:27:26 Tab2 FinishNav57
+0:27:26 Microsoft.UnloadController.IsUnclosableApp_IsNotWebApp

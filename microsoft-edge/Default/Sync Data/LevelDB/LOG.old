@@ -1,0 +1,6 @@
+2025/09/10-07:51:20.195 19c3 Reusing MANIFEST /home/truong/.config/microsoft-edge/Default/Sync Data/LevelDB/MANIFEST-000001
+2025/09/10-07:51:20.196 19c3 Recovering log #10
+2025/09/10-07:51:20.196 19c3 Reusing old log /home/truong/.config/microsoft-edge/Default/Sync Data/LevelDB/000010.log 
+2025/09/10-07:53:04.604 19c4 Level-0 table #14: started
+2025/09/10-07:53:04.623 19c4 Level-0 table #14: 92995 bytes OK
+2025/09/10-07:53:04.625 19c4 Delete type=0 #10
