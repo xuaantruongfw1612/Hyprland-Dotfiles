@@ -1,0 +1,28 @@
+[Desktop Entry]
+Name=Zalo
+Comment=Zalo Messenger
+Exec=flatpak run --command=bottles-cli com.usebottles.bottles run -b "Zalo" -p "Zalo"
+Icon=zalo
+Type=Application
+Categories=Network;Chat;InstantMessaging;
+StartupNotify=true
+
+# --------------------------
+# mở comment dán đoạn cuối này vào terminal
+# wget -O ~/Downloads/zalo-icon.svg "https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
+# mkdir -p ~/.local/share/icons/hicolor/48x48/apps
+# cp ~/Downloads/zalo-icon.svg ~/.local/share/icons/hicolor/48x48/apps/zalo.png 
+# cat > ~/.local/share/icons/hicolor/index.theme << 'EOF'
+# [Icon Theme]
+# Name=Hicolor
+# Comment=Fallback icon theme
+# Hidden=true
+# Directories=48x48/apps
+# [48x48/apps]
+# Size=48
+# Context=Applications
+# Type=Threshold
+# EOF
+# sed -i 's|Icon=.*|Icon=zalo|' ~/.local/share/applications/zalo.desktop
+# update-desktop-database ~/.local/share/applications
+# gtk-update-icon-cache ~/.local/share/icons/hicolor/
