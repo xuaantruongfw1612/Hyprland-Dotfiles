@@ -1,0 +1,15 @@
+[MIME Cache]
+application/pdf=microsoft-edge.desktop;
+application/rdf+xml=microsoft-edge.desktop;
+application/rss+xml=microsoft-edge.desktop;
+application/xhtml+xml=microsoft-edge.desktop;
+application/xhtml_xml=microsoft-edge.desktop;
+application/xml=microsoft-edge.desktop;
+image/gif=microsoft-edge.desktop;
+image/jpeg=microsoft-edge.desktop;
+image/png=microsoft-edge.desktop;
+image/webp=microsoft-edge.desktop;
+text/html=microsoft-edge.desktop;
+text/xml=microsoft-edge.desktop;
+x-scheme-handler/http=microsoft-edge.desktop;
+x-scheme-handler/https=microsoft-edge.desktop;
