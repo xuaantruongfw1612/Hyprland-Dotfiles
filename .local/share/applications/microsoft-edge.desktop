@@ -1,0 +1,25 @@
+[Desktop Entry]
+Version=1.0
+Name=Microsoft Edge
+GenericName=Web Browser
+GenericName[vi]=[translate:Bộ duyệt Web]
+Comment=Access the Internet
+Comment[vi]=[translate:Truy cập Internet]
+Exec=/usr/bin/microsoft-edge-stable --enable-features=UseOzonePlatform --ozone-platform=wayland --high-dpi-support=1 --gtk-version=4 %U
+StartupNotify=true
+Terminal=false
+Icon=microsoft-edge
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+Name[vi]=[translate:Cửa sổ Mới]
+Exec=/usr/bin/microsoft-edge-stable --enable-features=UseOzonePlatform --ozone-platform=wayland --high-dpi-support=1 --gtk-version=4
+
+[Desktop Action new-private-window]
+Name=New InPrivate Window
+Name[vi]=[translate:Cửa Sổ InPrivate Mới]
+Exec=/usr/bin/microsoft-edge-stable --enable-features=UseOzonePlatform --ozone-platform=wayland --high-dpi-support=1 --gtk-version=4 --inprivate
