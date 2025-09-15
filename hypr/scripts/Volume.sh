@@ -1,10 +1,8 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
+# /* ---- 💫 [https://github.com/JaKooLit](https://github.com/JaKooLit) 💫 ---- */  ##
 # Scripts for volume controls for audio and mic 
-
 iDIR="$HOME/.config/swaync/icons"
 sDIR="$HOME/.config/hypr/scripts"
-
 # Get Volume
 get_volume() {
     volume=$(pamixer --get-volume)
@@ -14,7 +12,6 @@ get_volume() {
         echo "$volume %"
     fi
 }
-
 # Get icons
 get_icon() {
     current=$(get_volume)
@@ -28,17 +25,15 @@ get_icon() {
         echo "$iDIR/volume-high.png"
     fi
 }
-
 # Notify
 notify_user() {
     if [[ "$(get_volume)" == "Muted" ]]; then
-        notify-send -e -h string:x-canonical-private-synchronous:volume_notif -h boolean:SWAYNC_BYPASS_DND:true -u low -i "$(get_icon)" " Volume:" " Muted"
+        notify-send -e -t 1000 -h string:x-canonical-private-synchronous:volume_notif -h boolean:SWAYNC_BYPASS_DND:true -u low -i "$(get_icon)" " Volume:" " Muted"
     else
-        notify-send -e -h int:value:"$(get_volume | sed 's/%//')" -h string:x-canonical-private-synchronous:volume_notif -h boolean:SWAYNC_BYPASS_DND:true -u low -i "$(get_icon)" " Volume Level:" " $(get_volume)" &&
+        notify-send -e -t 1000 -h int:value:"$(get_volume | sed 's/%//')" -h string:x-canonical-private-synchronous:volume_notif -h boolean:SWAYNC_BYPASS_DND:true -u low -i "$(get_icon)" " Volume Level:" " $(get_volume)" &&
         "$sDIR/Sounds.sh" --volume
     fi
 }
-
 # Increase Volume
 inc_volume() {
     if [ "$(pamixer --get-mute)" == "true" ]; then
@@ -47,7 +42,6 @@ inc_volume() {
         pamixer -i 5 --allow-boost --set-limit 150 && notify_user
     fi
 }
-
 # Decrease Volume
 dec_volume() {
     if [ "$(pamixer --get-mute)" == "true" ]; then
@@ -56,22 +50,20 @@ dec_volume() {
         pamixer -d 5 && notify_user
     fi
 }
-
 # Toggle Mute
 toggle_mute() {
 	if [ "$(pamixer --get-mute)" == "false" ]; then
-		pamixer -m && notify-send -e -u low -h boolean:SWAYNC_BYPASS_DND:true -i "$iDIR/volume-mute.png" " Mute"
+		pamixer -m && notify-send -e -u low -t 1000 -h boolean:SWAYNC_BYPASS_DND:true -i "$iDIR/volume-mute.png" " Mute"
 	elif [ "$(pamixer --get-mute)" == "true" ]; then
-		pamixer -u && notify-send -e -u low -h boolean:SWAYNC_BYPASS_DND:true -i "$(get_icon)" " Volume:" " Switched ON"
+		pamixer -u && notify-send -e -u low -t 1000 -h boolean:SWAYNC_BYPASS_DND:true -i "$(get_icon)" " Volume:" " Switched ON"
 	fi
 }
-
 # Toggle Mic
 toggle_mic() {
 	if [ "$(pamixer --default-source --get-mute)" == "false" ]; then
-		pamixer --default-source -m && notify-send -e -u low -h boolean:SWAYNC_BYPASS_DND:true -i "$iDIR/microphone-mute.png" " Microphone:" " Switched OFF"
+		pamixer --default-source -m && notify-send -e -u low -t 1000 -h boolean:SWAYNC_BYPASS_DND:true -i "$iDIR/microphone-mute.png" " Microphone:" " Switched OFF"
 	elif [ "$(pamixer --default-source --get-mute)" == "true" ]; then
-		pamixer -u --default-source u && notify-send -e -u low -h boolean:SWAYNC_BYPASS_DND:true -i "$iDIR/microphone.png" " Microphone:" " Switched ON"
+		pamixer -u --default-source u && notify-send -e -u low -t 1000 -h boolean:SWAYNC_BYPASS_DND:true -i "$iDIR/microphone.png" " Microphone:" " Switched ON"
 	fi
 }
 # Get Mic Icon
@@ -83,7 +75,6 @@ get_mic_icon() {
         echo "$iDIR/microphone.png"
     fi
 }
-
 # Get Microphone Volume
 get_mic_volume() {
     volume=$(pamixer --default-source --get-volume)
@@ -93,14 +84,12 @@ get_mic_volume() {
         echo "$volume %"
     fi
 }
-
 # Notify for Microphone
 notify_mic_user() {
     volume=$(get_mic_volume)
     icon=$(get_mic_icon)
-    notify-send -e -h int:value:"$volume" -h "string:x-canonical-private-synchronous:volume_notif" -h boolean:SWAYNC_BYPASS_DND:true -u low -i "$icon"  " Mic Level:" " $volume"
+    notify-send -e -t 1000 -h int:value:"$volume" -h "string:x-canonical-private-synchronous:volume_notif" -h boolean:SWAYNC_BYPASS_DND:true -u low -i "$icon"  " Mic Level:" " $volume"
 }
-
 # Increase MIC Volume
 inc_mic_volume() {
     if [ "$(pamixer --default-source --get-mute)" == "true" ]; then
@@ -109,7 +98,6 @@ inc_mic_volume() {
         pamixer --default-source -i 5 && notify_mic_user
     fi
 }
-
 # Decrease MIC Volume
 dec_mic_volume() {
     if [ "$(pamixer --default-source --get-mute)" == "true" ]; then
@@ -118,7 +106,6 @@ dec_mic_volume() {
         pamixer --default-source -d 5 && notify_mic_user
     fi
 }
-
 # Execute accordingly
 if [[ "$1" == "--get" ]]; then
 	get_volume
