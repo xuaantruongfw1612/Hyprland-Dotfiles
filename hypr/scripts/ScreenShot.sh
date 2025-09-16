@@ -107,38 +107,34 @@ shotwin() {
 	notify_view
 }
 
-# shotarea() {
-# 	tmpfile=$(mktemp)
-# 	grim -g "$(slurp)" - >"$tmpfile"
-
-#   # Copy with saving
-# 	if [[ -s "$tmpfile" ]]; then
-# 		wl-copy <"$tmpfile"
-# 		mv "$tmpfile" "$dir/$file"
-# 	fi
-# 	notify_view
-# }
-
+# sudo pacman -S imagemagick
 shotarea() {
     frozen=$(mktemp --suffix=.png)
-    current_time=$(date "+%d%m%y_%Hh%Mm%Ss%3Nms")
-    current_file="screenshot_${current_time}.png"
-    
-    # Chụp màn hình hiện tại để đóng băng
-    grim "$frozen"
-    
-    # Chọn vùng từ ảnh đóng băng
+    grim "$frozen"  # chụp toàn màn hình ngay lúc ấn
+
+    # slurp trả về: "x,y widthxheight" (ví dụ: 200,300 800x600)
     region=$(slurp -d "$frozen")
-    
+
     if [[ -n "$region" ]]; then
-        # Chụp lại từ màn hình với vùng đã chọn (nhanh hơn crop)
-        grim -g "$region" "$dir/$current_file"
+        current_time=$(date "+%d%m%y_%Hh%Mm%Ss%3Nms")
+        current_file="screenshot_${current_time}.png"
+
+        # Tách giá trị từ region
+        x=$(echo "$region" | awk '{print $1}' | cut -d',' -f1)
+        y=$(echo "$region" | awk '{print $1}' | cut -d',' -f2)
+        w=$(echo "$region" | awk '{print $2}' | cut -d'x' -f1)
+        h=$(echo "$region" | awk '{print $2}' | cut -d'x' -f2)
+
+        # Crop vùng đã chọn từ ảnh frozen
+        convert "$frozen" -crop "${w}x${h}+${x}+${y}" "$dir/$current_file"
+
         wl-copy < "$dir/$current_file"
         file="$current_file"
         notify_view
     else
         ${notify_cmd_NOT} " Screenshot" " Cancelled"
     fi
+
     rm -f "$frozen"
 }
 
