@@ -1,10 +1,11 @@
 #!/bin/bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
+# --- Workspaces configuration by Xuan Truong ---
 
-# GDK BACKEND. Change to either wayland or x11 if having issues
+# GDK BACKEND. Đổi sang wayland hoặc x11 nếu gặp vấn đề
 BACKEND=wayland
 
-# Check if rofi or yad is running and kill them if they are
+# Kiểm tra nếu rofi hoặc yad đang chạy và đóng chúng lại
 if pidof rofi > /dev/null; then
   pkill rofi
 fi
@@ -13,7 +14,7 @@ if pidof yad > /dev/null; then
   pkill yad
 fi
 
-# Launch yad with calculated width and height
+# Khởi chạy yad với chiều rộng và chiều cao đã tính toán
 GDK_BACKEND=$BACKEND yad \
     --center \
     --title="KooL Quick Cheat Sheet" \
@@ -24,49 +25,49 @@ GDK_BACKEND=$BACKEND yad \
     --column=Command: \
     --timeout-indicator=bottom \
 "ESC" "close this app" "" " = " "SUPER KEY (Windows Key Button)" "(SUPER KEY)" \
-" SHIFT K" "Searchable Keybinds" "(Search all Keybinds via rofi)" \
-" SHIFT E" "KooL Hyprland Settings Menu" "" \
+" SHIFT K" "Tìm kiếm phím tắt" "(Tìm tất cả phím tắt qua rofi)" \
+" SHIFT E" "Menu cài đặt Hyprland của KooL" "" \
 "" "" "" \
 " enter" "Terminal" "(kitty)" \
-" SHIFT enter" "DropDown Terminal" " Q to close" \
-" B" "Launch Browser" "(Default browser)" \
-" A" "Desktop Overview" "(AGS - if opted to install)" \
-" D" "Application Launcher" "(rofi-wayland)" \
-" E" "Open File Manager" "(Thunar)" \
-" S" "Google Search using rofi" "(rofi)" \
-" Q" "close active window" "(not kill)" \
-" Shift Q " "kills an active window" "(kill)" \
-" ALT mouse scroll up/down   " "Desktop Zoom" "Desktop Magnifier" \
-" Alt V" "Clipboard Manager" "(cliphist)" \
-" W" "Choose wallpaper" "(Wallpaper Menu)" \
-" Shift W" "Choose wallpaper effects" "(imagemagick + swww)" \
-"CTRL ALT W" "Random wallpaper" "(via swww)" \
-" CTRL ALT B" "Hide/UnHide Waybar" "waybar" \
-" CTRL B" "Choose waybar styles" "(waybar styles)" \
-" ALT B" "Choose waybar layout" "(waybar layout)" \
-" ALT R" "Reload Waybar swaync Rofi" "CHECK NOTIFICATION FIRST!!!" \
-" SHIFT N" "Launch Notification Panel" "swaync Notification Center" \
-" Print" "screenshot" "(grim)" \
-" Shift Print" "screenshot region" "(grim + slurp)" \
-" Shift S" "screenshot region" "(swappy)" \
-" CTRL Print" "screenshot timer 5 secs " "(grim)" \
-" CTRL SHIFT Print" "screenshot timer 10 secs " "(grim)" \
-"ALT Print" "Screenshot active window" "active window only" \
-"CTRL ALT P" "power-menu" "(wlogout)" \
-"CTRL ALT L" "screen lock" "(hyprlock)" \
-"CTRL ALT Del" "Hyprland Exit" "(NOTE: Hyprland Will exit immediately)" \
-" SHIFT F" "Fullscreen" "Toggles to full screen" \
-" CTL F" "Fake Fullscreen" "Toggles to fake full screen" \
-" ALT L" "Toggle Dwindle | Master Layout" "Hyprland Layout" \
-" SPACEBAR" "Toggle float" "single window" \
-" ALT SPACEBAR" "Toggle all windows to float" "all windows" \
-" ALT O" "Toggle Blur" "normal or less blur" \
-" CTRL O" "Toggle Opaque ON or OFF" "on active window only" \
-" Shift A" "Animations Menu" "Choose Animations via rofi" \
-" CTRL R" "Rofi Themes Menu" "Choose Rofi Themes via rofi" \
-" CTRL Shift R" "Rofi Themes Menu v2" "Choose Rofi Themes via Theme Selector (modified)" \
-" SHIFT G" "Gamemode! All animations OFF or ON" "toggle" \
-" ALT E" "Rofi Emoticons" "Emoticon" \
-" H" "Launch this Quick Cheat Sheet" "" \
+" SHIFT enter" "Terminal thả xuống" " Q để đóng" \
+" B" "Mở trình duyệt" "(Trình duyệt mặc định)" \
+" A" "Tổng quan Desktop" "(AGS - nếu đã chọn cài đặt)" \
+" D" "Trình khởi chạy ứng dụng" "(rofi-wayland)" \
+" E" "Mở trình quản lý tệp" "(Thunar)" \
+" S" "Tìm kiếm Google bằng rofi" "(rofi)" \
+" Q" "đóng cửa sổ đang hoạt động" "(không kill)" \
+" Shift Q " "kill cửa sổ đang hoạt động" "(kill)" \
+" ALT scroll chuột lên/xuống   " "Phóng to Desktop" "Kính lúp màn hình" \
+" Alt V" "Trình quản lý Clipboard" "(cliphist)" \
+" W" "Chọn hình nền" "(Menu hình nền)" \
+" Shift W" "Chọn hiệu ứng hình nền" "(imagemagick + swww)" \
+"CTRL ALT W" "Hình nền ngẫu nhiên" "(qua swww)" \
+" CTRL ALT B" "Ẩn/Hiện Waybar" "waybar" \
+" CTRL B" "Chọn kiểu waybar" "(kiểu waybar)" \
+" ALT B" "Chọn bố cục waybar" "(bố cục waybar)" \
+" ALT R" "Tải lại Waybar swaync Rofi" "KIỂM TRA THÔNG BÁO TRƯỚC!!!" \
+" SHIFT N" "Mở bảng thông báo" "Trung tâm thông báo swaync" \
+" Ctrl S" "chụp toàn màn hình" "(grim)" \
+" Shift S" "chụp vùng chọn" "(swappy)" \
+" Shift Print" "chụp vùng chọn" "(grim + slurp)" \
+" CTRL Print" "chụp màn hình hẹn giờ 5 giây " "(grim)" \
+" CTRL SHIFT Print" "chụp màn hình hẹn giờ 10 giây " "(grim)" \
+"ALT Print" "Chụp cửa sổ đang hoạt động" "chỉ cửa sổ hiện tại" \
+"CTRL ALT P" "menu nguồn" "(wlogout)" \
+"CTRL ALT L" "khóa màn hình" "(hyprlock)" \
+"CTRL ALT Del" "Thoát Hyprland" "(LƯU Ý: Hyprland sẽ thoát ngay lập tức)" \
+" SHIFT F" "Toàn màn hình" "Chuyển sang chế độ toàn màn hình" \
+" CTL F" "Giả toàn màn hình" "Chuyển sang chế độ giả toàn màn hình" \
+" ALT L" "Chuyển đổi bố cục Dwindle | Master" "Bố cục Hyprland" \
+" SPACEBAR" "Chuyển sang chế độ nổi" "cửa sổ đơn" \
+" ALT SPACEBAR" "Chuyển tất cả cửa sổ sang chế độ nổi" "tất cả cửa sổ" \
+" ALT O" "Bật/Tắt Blur" "làm mờ bình thường hoặc ít hơn" \
+" CTRL O" "Bật/Tắt độ mờ đục" "chỉ cửa sổ đang hoạt động" \
+" Shift A" "Menu hiệu ứng" "Chọn hiệu ứng qua rofi" \
+" CTRL R" "Menu giao diện Rofi" "Chọn giao diện Rofi qua rofi" \
+" CTRL Shift R" "Menu giao diện Rofi v2" "Chọn giao diện qua Theme Selector (đã chỉnh sửa)" \
+" SHIFT G" "Chế độ chơi game" "TẮT hoặc BẬT tất cả hiệu ứng" \
+" ALT E" "Biểu tượng cảm xúc Rofi" "Emoticon" \
+" H" "Mở bảng phím tắt nhanh này" "" \
 "" "" "" \
 "More tips:" "https://github.com/JaKooLit/Hyprland-Dots/wiki" ""\
