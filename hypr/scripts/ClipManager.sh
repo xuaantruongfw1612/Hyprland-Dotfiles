@@ -5,7 +5,7 @@
 
 # Variables
 rofi_theme="$HOME/.config/rofi/config-clipboard.rasi"
-msg='👀 **note**  CTRL DEL = cliphist del (entry)   or   ALT DEL - cliphist wipe (all)'
+msg='👀 ||NOTE||  CTRL DEL = cliphist del (entry)   or   ALT DEL - cliphist wipe (all)'
 tmp_dir="$HOME/.cache/thumbnails/normal"
 
 # Create directory if not exists
