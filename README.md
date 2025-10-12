@@ -6,3 +6,5 @@ nohup mpvpaper -o "--loop --no-audio" eDP-1 ~/Pictures/wallpapers/<video.mp4> >/
 
 # xuat man hinh roi
 sudo pacman -S nvidia-dkms nvidia-utils nvidia-settings nvidia-prime
+
+sudo cp -rn /home/truong/.config/etc/* /etc/
