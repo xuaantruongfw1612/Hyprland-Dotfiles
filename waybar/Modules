@@ -307,7 +307,7 @@
 	"tooltip-format-ethernet": "{ifname} 󰌘\nIP: {ipaddr}\nUpload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}",
 	"tooltip-format-disconnected": "󰌙 Disconnected",
 	"min-length": 22,
-	"max-length": 22
+	"max-length": 22,
 	"format-icons": [
 		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
 	],
