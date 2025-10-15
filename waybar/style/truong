@@ -429,19 +429,19 @@ tooltip {
 
 #custom-swaync,
 #custom-swaync.none,
-#custom-swaync.dnd-none,
-#custom-swaync.inhibited-none,
-#custom-swaync.dnd-inhibited-none {
-    color: white;
+#custom-swaync.inhibited-none {
+    color: #ffffff;
 }
 
 #custom-swaync.notification,
-#custom-swaync.dnd-notification,
-#custom-swaync.inhibited-notification,
-#custom-swaync.dnd-inhibited-notification {
-    color: #ff0000;
+#custom-swaync.inhibited-notification {
+    color: #FF33CC;
 }
 
-#custom-swaync.dnd {
-    color: #ffa500;
+#custom-swaync.dnd,
+#custom-swaync.dnd-none,
+#custom-swaync.dnd-notification,
+#custom-swaync.dnd-inhibited-none,
+#custom-swaync.dnd-inhibited-notification {
+    color: #ff0000;
 }
