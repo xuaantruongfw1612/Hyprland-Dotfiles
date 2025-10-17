@@ -21,7 +21,7 @@ while true; do
                             "⚠ Battery: ${battery_capacity}%" \
                             "PLUG IN CHARGER NOW!"
                         
-                        paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga 2>/dev/null &
+                        paplay /usr/share/sounds/freedesktop/stereo/service-login.oga 2>/dev/null &
                         NOTIFIED_CRITICAL=true
                     fi
                     
@@ -32,7 +32,7 @@ while true; do
                             "Battery: ${battery_capacity}%" \
                             "Please connect charger"
                         
-                        paplay /usr/share/sounds/freedesktop/stereo/suspend-error.oga 2>/dev/null &
+                        paplay /usr/share/sounds/freedesktop/stereo/service-logout.oga 2>/dev/null &
                         NOTIFIED_LOW=true
                     fi
                 fi
