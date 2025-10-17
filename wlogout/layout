@@ -19,13 +19,13 @@
 {
     "label" : "logout",
     "action" : "hyprctl dispatch exit 0",
-    "text" : "Logout",
-    "keybind" : "e"
+    "text" : "LogOut",
+    "keybind" : "o"
 }
 {
     "label" : "suspend",
     "action" : "systemctl suspend",
-    "text" : "Suspend",
+    "text" : "SUspend",
     "keybind" : "u"
 }
 {
