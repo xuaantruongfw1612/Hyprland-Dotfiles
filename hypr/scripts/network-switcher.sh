@@ -1,4 +1,5 @@
 #!/bin/bash
+# /* ---- 💫 https://github.com/xuantruong1612 💫 ---- */  ##
 # Script tự động chuyển mạng - wifi - internet nhanh hơn
 
 CONNECTIONS=("Ten_mang_wifi_1" "Ten_Mang_WiFi_2")
