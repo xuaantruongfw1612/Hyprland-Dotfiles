@@ -1,12 +1,8 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# weather info from wttr. https://github.com/chubin/wttr.in
+# weather info from wttr
 
-# city="20.8193,106.0314"  # Tọa độ Hưng Yên
-# location_name="Hưng Yên"  # Tên hiển thị
 city="20.9702189,105.7749565"
 location_name="Hà Đông"
-
 cachedir="$HOME/.cache/rbn"
 cachefile=${0##*/}-$1
 
@@ -20,7 +16,6 @@ fi
 
 # Save current IFS
 SAVEIFS=$IFS
-# Change IFS to new line.
 IFS=$'\n'
 
 cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
@@ -32,27 +27,22 @@ if [ $cacheage -gt 1740 ] || [ ! -s $cachedir/$cachefile ]; then
 fi
 
 weather=($(cat $cachedir/$cachefile))
-
-# Restore IFS
 IFS=$SAVEIFS
 
-temperature=$(echo ${weather[2]} \
-  | sed -E 's/\([0-9]+\)//g' \
-  | sed -E 's/([[:digit:]]+)\.\./\1 to /g' \
-  | sed -E 's/ ?°C/°C/g' \
-  | xargs)
-
-# Lấy giá trị nhiệt độ
+# Lấy nhiệt độ
+temperature=$(echo ${weather[2]} | sed -E 's/\([0-9]+\)//g' | sed -E 's/([[:digit:]]+)\.\./\1 to /g' | sed 's/ °C/°C/g' | xargs)
 temp_value=$(echo ${weather[2]} | grep -oP '\d+' | head -n1)
 temp_short=$(echo ${weather[2]} | grep -oP '^\+?\d+')
 
-# Lấy thông tin chi tiết từ wttr.in với format riêng
-condition_full=$(curl -s "https://en.wttr.in/$city?format=%C" 2>&1)
-feels_like=$(curl -s "https://en.wttr.in/$city?format=%f" 2>&1)
-humidity=$(curl -s "https://en.wttr.in/$city?format=%h" 2>&1)
-wind=$(curl -s "https://en.wttr.in/$city?format=%w" 2>&1)
-precip=$(curl -s "https://en.wttr.in/$city?format=%p" 2>&1)
-pressure=$(curl -s "https://en.wttr.in/$city?format=%P" 2>&1)
+# Lấy thông tin chi tiết GỘP 1 LƯỢT
+weather_details=$(curl -s "https://en.wttr.in/$city?format=%C+%f+%h+%w+%p+%P" 2>&1)
+
+# Parse nhanh bằng awk
+feels_like=$(echo "$weather_details" | awk '{print $2}')
+humidity=$(echo "$weather_details" | awk '{print $3}')
+wind=$(echo "$weather_details" | awk '{print $4, $5}')
+precip=$(echo "$weather_details" | awk '{print $6}')
+pressure=$(echo "$weather_details" | awk '{print $7}')
 
 # Xác định class theo nhiệt độ
 if [ -z "$temp_value" ]; then
