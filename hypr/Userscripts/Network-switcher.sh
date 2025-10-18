@@ -6,7 +6,7 @@
 
 CONNECTIONS=("Hoang" "here comes the sun" "NGUYEN LU" "VIETTEL")
 CHECK_INTERVAL=600 # 10m
-LOG_FILE="$HOME/.config/hypr/logs/network-switcher.log"
+LOG_FILE="$HOME/.cache/hypr/logs/network-switcher.log"
 
 mkdir -p "$(dirname "$LOG_FILE")"
 
