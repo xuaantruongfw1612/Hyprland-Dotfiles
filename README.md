@@ -14,3 +14,6 @@ ui.key.menuAccessKeyFocuses
 
 # tu dong de xuat khi tim kiem firefox
 <img width="1023" height="628" alt="Image" src="https://github.com/user-attachments/assets/0f10f5ab-c0d5-4893-8c6d-7e9ea9a6f39f" />
+
+# pin 80%
+sudo pacman -S tlp tlp-rdw
