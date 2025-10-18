@@ -172,18 +172,7 @@ tooltip {
 #custom-swaync,
 #custom-tty,
 #custom-updater,
-#custom-hyprpicker,
-#custom-weather,
-#custom-weather.clearNight,
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight,
-#custom-weather.default,
-#custom-weather.rainyDay,
-#custom-weather.rainyNight,
-#custom-weather.severe,
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight,
-#custom-weather.sunnyDay {
+#custom-hyprpicker {
     color: white;
 	padding-right: 6px;
 	padding-left: 6px;
@@ -312,21 +301,27 @@ tooltip {
 }
 
 #battery.critical:not(.charging) {
-	color: #f38ba8;
-	animation-name: blink;
-	animation-duration: 3.0s;
-	animation-timing-function: steps(12);
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+    color: #f38ba8;
+    animation-name: blink-red-black;
+    animation-duration: 1.0s;
+    animation-timing-function: steps(2);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #battery.charging {
     color: #39FF14;
 }
 
-@keyframes blink {
-    to {
+@keyframes blink-red-black {
+    0% {
+        color: #ff0000;
+    }
+    50% {
         color: #000000;
+    }
+    100% {
+        color: #ff0000;
     }
 }
 
@@ -374,7 +369,42 @@ tooltip {
 	padding-left: 6px;
 }
 
-#custom-weather,
+/* Weather Module - Color theo nhiệt độ */
+#custom-weather {
+    color: #89b4fa;
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+#custom-weather.freezing {
+    color: #89dceb;
+}
+
+#custom-weather.cold {
+    color: #94e2d5;
+}
+
+#custom-weather.cool {
+    color: #a6e3a1;
+}
+
+#custom-weather.warm {
+    color: #f9e2af;
+}
+
+#custom-weather.hot {
+    color: #fab387;
+}
+
+#custom-weather.veryhot {
+    color: #f38ba8;
+    animation-name: blink;
+    animation-duration: 2.0s;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
 #custom-weather.clearNight,
 #custom-weather.cloudyFoggyDay,
 #custom-weather.cloudyFoggyNight,
@@ -385,9 +415,8 @@ tooltip {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.sunnyDay {
-	color: @lavender;
-	padding-right: 6px;
-	padding-left: 6px;
+    padding-right: 6px;
+    padding-left: 6px;
 }
 
 #custom-hypridle.notactive,
