@@ -295,29 +295,29 @@
 },
 
 "network#speed": {
-	"interval": 5,
-	"format": "{ifname}",
-"format-wifi": " {bandwidthUpBytes}  {bandwidthDownBytes}",
-	"format-ethernet": "󰌘 {bandwidthUpBytes} {bandwidthDownBytes}",
-	"format-disconnected": "<span foreground='#ff0000'>󰌙 Disconnected</span>",
-	"format-disabled": "<span foreground='#ff0000'>󰌙 Disconnected</span>",
-	"tooltip-format": "{ipaddr}\nSSID: {essid}\nSignal: {signalStrength}%\nUpload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}",
-	"format-linked": "󰈁 {ifname} (No IP)",
-	"tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}\nUpload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}",
-	"tooltip-format-ethernet": "{ifname} 󰌘\nIP: {ipaddr}\nUpload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}",
-	"tooltip-format-disconnected": "󰌙 Disconnected",
-	"min-length": 22,
-	"max-length": 22,
-	"format-icons": [
-		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
-	],
-	"states": {
-		"excellent": 80,
-		"good": 60,
-		"ok": 40,
-		"slow": 20,
-		"disconnected": 0
-	}
+    "interval": 5,
+    "format": "{icon}",  // Mặc định chỉ hiện icon
+    "format-alt": " {bandwidthUpBytes}  {bandwidthDownBytes}",  // Khi click: hiện tốc độ
+    "format-alt-click": "click",  // Trigger bằng click chuột
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰌘",
+    "format-disconnected": "<span foreground='#ff0000'>󰌙</span>",
+    "format-disabled": "<span foreground='#ff0000'>󰌙</span>",
+    "tooltip": true,
+    "tooltip-format-wifi": "SSID: {essid}&#10;Signal: {signalStrength}%&#10;IP: {ipaddr}&#10;Upload: {bandwidthUpBytes}&#10;Download: {bandwidthDownBytes}",
+    "tooltip-format-ethernet": "Interface: {ifname}&#10;IP: {ipaddr}&#10;Upload: {bandwidthUpBytes}&#10;Download: {bandwidthDownBytes}",
+    "tooltip-format-disconnected": "󰌙 Disconnected",
+    "format-icons": [
+        "󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+    ],
+    "states": {
+        "excellent": 80,
+        "good": 60,
+        "ok": 40,
+        "slow": 20,
+        "disconnected": 0
+    },
+    "on-click-right": "$HOME/.config/hypr/scripts/WaybarScripts.sh --nmtui"
 },
 
 "power-profiles-daemon": {
