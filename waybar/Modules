@@ -396,6 +396,16 @@
 	"spacing": 4,
 },
 
+"custom/weather": {
+    "format": "{}",
+    "format-alt": "{alt}: {}",
+    "format-alt-click": "click",
+    "interval": 3600,
+    "return-type": "json",
+    "exec": "$HOME/.config/hypr/UserScripts/Weather.sh",
+    "tooltip": true,
+},
+
 "wireplumber": {
 	"format": "{icon} {volume} %",
 	"format-muted": " Mute",
