@@ -11,7 +11,7 @@
 	"interval": 10,
 	"tooltip": true,
 	"hwmon-path": [
-		"/sys/class/hwmon/hwmon1/temp1_input",
+		"/sys/class/hwmon/hwmon4/temp1_input",
 		"/sys/class/thermal/thermal_zone0/temp"
 	],
 	//"thermal-zone": 0,
@@ -99,7 +99,7 @@
 
 "clock": {
 	"interval": 1,
-    "format": "{:%I:%M %p}", // AM PM format
+    "format": " {:%I:%M %p}", // AM PM format
     //"format": " {:%H:%M:%S}",// 24H
 	"format-alt": " {:%H:%M:%S   %Y, %d %B, %A}",
 	"tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -127,7 +127,7 @@
 },
 
 "clock#2": {
-    "format": "{:%I:%M %p}", // AM PM format
+    "format": " {:%I:%M %p}", // AM PM format
     //"format": "  {:%H:%M}",// 24H
     "format-alt": "{:%A  |  %H:%M  |  %e %B}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -344,7 +344,7 @@
 		"portable": "",
 		"car": "",
 		"default": [
-			"", "", "󰕾",  " "
+			"", "", "󰕾",  ""
 		],
 		"ignored-sinks": [
 			"Easy Effects Sink"
@@ -371,7 +371,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", " "]
+      "default": ["", "", ""]
     },
   "on-click": "pamixer --toggle-mute",
   "on-click-right": "pavucontrol -t 3",
@@ -382,7 +382,7 @@
 "pulseaudio#microphone": {
 	"format": "{format_source}",
 	"format-source": " {volume}%",
-	"format-source-muted": " ",
+	"format-source-muted": "",
 	"on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle-mic",
 	"on-click-right": "pavucontrol -t 4",
 	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --mic-inc",
@@ -396,6 +396,16 @@
 	"spacing": 4,
 },
 
+"custom/weather": {
+    "format": "{}",
+    "format-alt": "{alt}: {}",
+    "format-alt-click": "click",
+    "interval": 3600,
+    "return-type": "json",
+    "exec": "$HOME/.config/hypr/UserScripts/Weather.sh",
+    "tooltip": true,
+},
+
 "wireplumber": {
 	"format": "{icon} {volume} %",
 	"format-muted": " Mute",
@@ -404,7 +414,7 @@
 	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
 	"on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec",
 	"format-icons": [
-		"", "", "󰕾", " "
+		"", "", "󰕾", ""
 	],
 },
 

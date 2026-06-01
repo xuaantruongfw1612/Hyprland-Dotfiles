@@ -1,5 +1,6 @@
 //* ---- 💫 https://github.com/JaKooLit 💫 ---- *//
 /* Waybar Workspaces modules */
+/* XuanTruong Config */
 
 /* Generally, this is a potential expanding of choices for hyprland/workspace */
 // HYPRLAND WORKSPACES. CHOOSE as desired and place on waybar configs
@@ -194,25 +195,23 @@
 		"class<tor browser>": " ",
 		"class<firefox-developer-edition>": "🦊 ",
 
-		"class<kitty|konsole|[Aa]lacritty>": " ",
+		"class<kitty|konsole>": " ",
 		"class<kitty-dropterm>": " ",
-		"class<com.mitchellh.ghostty>": " ",
+		"class<com.mitchellh.ghostty>": "󰊠 ",
 		"class<org.wezfurlong.wezterm>": " ",
-		"class<Warp|warp|dev.warp.Warp|warp-terminal>": "󰰭 ",
 
 		"class<[Tt]hunderbird|[Tt]hunderbird-esr>": " ",
 		"class<eu.betterbird.Betterbird>": " ",
 		"title<.*gmail.*>": "󰊫 ",
 
 		"class<[Tt]elegram-desktop|org.telegram.desktop|io.github.tdesktop_x64.TDesktop>": " ",
-		"class<discord|discord-canary|[Ww]ebcord|[Vv]esktop|com.discordapp.Discord|dev.vencord.Vesktop>": " ",
-		"class<[Ss]ignal|signal-desktop|org.signal.Signal>": "󰍩 ",
-		"title<.*Signal.*>": "󰍩 ",
+		"class<discord|[Ww]ebcord|Vesktop>": " ",
 		"title<.*whatsapp.*>": " ",
 		"title<.*zapzap.*>": " ",
 		"title<.*messenger.*>": " ",
 		"title<.*facebook.*>": " ",
-		"title<.*Discord.*>": " ",
+		"title<.*reddit.*>": " ",
+
 
 		"title<.*ChatGPT.*>": "󰚩 ",
 		"title<.*deepseek.*>": "󰚩 ",
@@ -226,20 +225,17 @@
 		"title<.*Picture-in-Picture.*>": " ",
 		"title<.*youtube.*>": " ",
 		"class<vlc>": "󰕼 ",
-		"class<[Kk]denlive|org.kde.kdenlive>": "🎬 ",
-		"title<.*Kdenlive.*>": "🎬 ",
 		"title<.*cmus.*>": " ",
 		"class<[Ss]potify>": " ",
 		"class<Plex>": "󰚺 ",
 
 		"class<virt-manager>": " ",
 		"class<.virt-manager-wrapped>": " ",
-		"class<remote-viewer|virt-viewer>": " ",
 		"class<virtualbox manager>": "💽 ",
 		"title<virtualbox>": "💽 ",
-		"class<remmina|org.remmina.Remmina>": "🖥️ ",
+		"class<remmina>": "🖥️ ",
 
-		"class<VSCode|code|code-url-handler|code-oss|codium|codium-url-handler|VSCodium>": "󰨞 ",
+		"class<VSCode|code-url-handler|code-oss|codium|codium-url-handler|VSCodium>": "󰨞 ",
 		"class<dev.zed.Zed>": "󰵁",
 		"class<codeblocks>": "󰅩 ",
 		"title<.*github.*>": " ",
@@ -258,7 +254,6 @@
 
 		"class<polkit-gnome-authentication-agent-1>": "󰒃 ",
 		"class<nwg-look>": " ",
-		"class<nwg-displays>": " ",
 		"class<[Pp]avucontrol|org.pulseaudio.pavucontrol>": "󱡫 ",
 		"class<steam>": " ",
 		"class<thunar|nemo>": "󰝰 ",	
@@ -269,29 +264,6 @@
 		"class<org.pipewire.Helvum>": "󰓃",
 		"class<localsend>":"",
 		"class<PrusaSlicer|UltiMaker-Cura|OrcaSlicer>": "󰹛",
-
-		"class<io.github.kolunmi.Bazaar>": " ",
-		"title<^Bazaar$>": " ",
-
-		"class<com.gabm.satty>": " ",
-		"title<^satty$>": " ",
-
-		"class<[Bb]ox[Bb]uddy|io.github.dvlv.boxbuddy|io.github.dvlv.BoxBuddy>": " ",
-		"title<.*BoxBuddy.*>": " ",
-
-		"title<Hyprland Keybinds>": " ",
-		"title<Niri Keybinds>": " ",
-		"title<BSPWM Keybinds>": " ",
-		"title<DWM Keybinds>": " ",
-		"title<Emacs Leader Keybinds>": " ",
-		"title<Kitty Configuration>": " ",
-		"title<WezTerm Configuration>": " ",
-		"title<Yazi Configuration>": " ",
-		"title<Cheatsheets Viewer>": " ",
-		"title<Documentation Viewer>": " ",
-		"title<^Wallpapers$>": " ",
-		"title<^Video Wallpapers$>": " ",
-		"title<^qs-wlogout$>": " ",
 		}
 	},
 }

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # Script for Oh my ZSH theme ( CTRL SHIFT O)
 

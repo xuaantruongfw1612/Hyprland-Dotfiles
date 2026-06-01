@@ -40,7 +40,6 @@
 	"backlight#vertical",
 	"pulseaudio/slider",
 	"pulseaudio#microphone_vertical",
-	"custom/nightlight",
 	"group/power#vert",
 ],
 

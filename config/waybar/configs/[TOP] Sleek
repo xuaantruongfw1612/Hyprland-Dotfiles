@@ -39,7 +39,6 @@
 	"pulseaudio",
 	"custom/separator#blank",
 	"group/mobo_drawer",
-	"custom/nightlight",
 	"custom/power",					
 	],
 }

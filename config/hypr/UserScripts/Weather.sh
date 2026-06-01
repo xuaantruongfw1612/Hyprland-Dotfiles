@@ -1,131 +1,71 @@
-#!/usr/bin/env bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# weather info from wttr. https://github.com/chubin/wttr.in
-# Remember to add city 
+#!/bin/bash
+# weather info from wttr
 
-city="Hanoi"
-
-
-# if city is blank, use https://ipapi.co/json to get location from IP
-if [ -z "$city" ]; then
-    city=$(curl -fsS https://ipapi.co/json | grep city | cut -f4 -d'"')
-fi
-
-
-# URL-encode city for safe use in URLs
-encoded_city="$city"
-if command -v python3 >/dev/null 2>&1; then
-    encoded_city=$(python3 -c 'import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))' "$city")
-elif command -v jq >/dev/null 2>&1; then
-    encoded_city=$(printf '%s' "$city" | jq -sRr @uri)
-else
-    # Minimal fallback: encode a few common special characters
-    encoded_city=$(printf '%s' "$city" | sed -e 's/ /%20/g' -e 's/&/%26/g' -e 's/?/%3F/g' -e 's/#/%23/g')
-fi
-
-
+city="20.8193,106.0314"
+location_name="Hưng Yên"
+# city="20.9702189,105.7749565"
+# location_name="Hà Đông"
 cachedir="$HOME/.cache/rbn"
-# Include city and arg in cache key so changing city invalidates old cache
-cache_key="${city}_${1}"
-# Sanitize cache key to avoid problematic characters in filename
-safe_key=$(printf '%s' "$cache_key" | tr -c '[:alnum:]_-' '_')
-cachefile=${0##*/}-$safe_key
+cachefile=${0##*/}-$1
 
-if [ ! -d "$cachedir" ]; then
-    mkdir -p "$cachedir"
-fi
+[ ! -d "$cachedir" ] && mkdir -p "$cachedir"
+[ ! -f "$cachedir/$cachefile" ] && touch "$cachedir/$cachefile"
 
-if [ ! -f "$cachedir/$cachefile" ]; then
-    touch "$cachedir/$cachefile"
-fi
-
-# Save current IFS
 SAVEIFS=$IFS
-# Change IFS to new line.
 IFS=$'\n'
 
-file="$cachedir/$cachefile"
-# Portable file mtime retrieval (GNU/BSD):
-# - GNU: stat -c %Y <file>
-# - BSD/macOS: stat -f %m <file>
-mtime=$(stat -c %Y "$file" 2>/dev/null || stat -f %m "$file" 2>/dev/null || echo 0)
-now=$(date +%s)
-cacheage=$(( now - mtime ))
+cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
 if [ $cacheage -gt 1740 ] || [ ! -s "$cachedir/$cachefile" ]; then
-    # Prefer structured format for reliable parsing (3 lines: location, condition, temperature)
-    mapfile -t sdata < <(curl -fsS "https://wttr.in/${encoded_city}?format=%25l%0A%25C%0A%25t&lang=en" 2>/dev/null || true)
-    if [ ${#sdata[@]} -ge 3 ]; then
-        printf "%s\n" "${sdata[0]}" > "$cachedir/$cachefile"
-        printf "%s\n" "${sdata[1]}" >> "$cachedir/$cachefile"
-        printf "%s\n" "${sdata[2]}" >> "$cachedir/$cachefile"
-    else
-        # Try fetching each field separately if combined format is flaky
-        loc=$(curl -fsS "https://wttr.in/${encoded_city}?format=%25l&lang=en" 2>/dev/null || true)
-        cond_only=$(curl -fsS "https://wttr.in/${encoded_city}?format=%25C&lang=en" 2>/dev/null || true)
-        temp_only=$(curl -fsS "https://wttr.in/${encoded_city}?format=%25t" 2>/dev/null || true)
-        if [ -n "$loc" ] && [ -n "$cond_only" ] && [ -n "$temp_only" ]; then
-            printf "%s\n" "$loc" > "$cachedir/$cachefile"
-            printf "%s\n" "$cond_only" >> "$cachedir/$cachefile"
-            printf "%s\n" "$temp_only" >> "$cachedir/$cachefile"
-        else
-        # Fallback: try ASCII output and extract best-effort fields
-        url="https://en.wttr.in/${encoded_city}?1"
-        mapfile -t data < <(curl -fsS "$url" 2>/dev/null || true)
-        if [ ${#data[@]} -ge 3 ] && ! echo "${data[0]}" | grep -qi 'not found\|unknown location'; then
-            loc=$(echo "${data[0]}" | sed -E 's/^.*: *//')
-            # Attempt to pull condition and temperature hints from nearby lines
-            cond=$(echo "${data[2]}" | sed -E 's/^.{0,15}//; s/^\s+//')
-            temp=$(printf "%s\n" "${data[@]}" | grep -Eo '\+?-?[0-9]+(\([^)]+\))? ?°?[CF]' | head -n1)
-            # Only write if we have at least location and something else meaningful
-            if [ -n "$loc" ] && { [ -n "$cond" ] || [ -n "$temp" ]; }; then
-                printf "%s\n" "$loc" > "$cachedir/$cachefile"
-                printf "%s\n" "${cond:-Unknown}" >> "$cachedir/$cachefile"
-                printf "%s\n" "${temp:-N/A}" >> "$cachedir/$cachefile"
-            fi
-        fi
-        fi
-    fi
+    data=($(curl -s "https://en.wttr.in/$city"$1\?0qnT 2>&1))
+    echo ${data[0]} | cut -f1 -d, > "$cachedir/$cachefile"
+    echo ${data[1]} | sed -E 's/^.{15}//' >> "$cachedir/$cachefile"
+    echo ${data[2]} | sed -E 's/^.{15}//' >> "$cachedir/$cachefile"
 fi
 
-# Read cache robustly (line-wise)
-mapfile -t weather < "$cachedir/$cachefile"
-
-# If cache is still empty or invalid, emit a single error JSON and exit to avoid double-prints
-if [ ${#weather[@]} -lt 3 ] || ! echo "${weather[2]}" | grep -qE '[-+0-9].*°'; then
-    # Last-chance: try live structured fetch and populate cache and runtime weather
-    mapfile -t sdata < <(curl -fsS "https://wttr.in/${encoded_city}?format=%25l%0A%25C%0A%25t&lang=en" 2>/dev/null || true)
-    if [ ${#sdata[@]} -ge 3 ]; then
-        weather=("${sdata[@]}")
-        printf "%s\n" "${sdata[0]}" > "$cachedir/$cachefile"
-        printf "%s\n" "${sdata[1]}" >> "$cachedir/$cachefile"
-        printf "%s\n" "${sdata[2]}" >> "$cachedir/$cachefile"
-    else
-        loc=$(curl -fsS "https://wttr.in/${encoded_city}?format=%25l&lang=en" 2>/dev/null || true)
-        cond_only=$(curl -fsS "https://wttr.in/${encoded_city}?format=%25C&lang=en" 2>/dev/null || true)
-        temp_only=$(curl -fsS "https://wttr.in/${encoded_city}?format=%25t" 2>/dev/null || true)
-        if [ -n "$loc" ] && [ -n "$cond_only" ] && [ -n "$temp_only" ]; then
-            weather=("$loc" "$cond_only" "$temp_only")
-            printf "%s\n" "$loc" > "$cachedir/$cachefile"
-            printf "%s\n" "$cond_only" >> "$cachedir/$cachefile"
-            printf "%s\n" "$temp_only" >> "$cachedir/$cachefile"
-        else
-            echo -e "{\"text\":\"\uf06a\", \"alt\":\"\", \"tooltip\":\": \"}"
-            exit 1
-        fi
-    fi
-fi
-
-# Restore IFSClear
+weather=($(cat "$cachedir/$cachefile"))
 IFS=$SAVEIFS
 
-temperature=$(echo "${weather[2]}" | sed -E 's/([[:digit:]]+)\.\./\1 to /g')
+# Lấy nhiệt độ
+temperature=$(echo ${weather[2]} | sed -E 's/\([0-9]+\)//g' | sed -E 's/([[:digit:]]+)\.\./\1 to /g' | sed 's/ °C/°C/g' | xargs)
+temp_value=$(echo ${weather[2]} | grep -oP '\d+' | head -n1)
+temp_short=$(echo ${weather[2]} | grep -oP '^\+?\d+')
 
-#echo ${weather[1]##*,}
+# Lấy thông tin chi tiết với format chính xác
+# %C=condition %f=feels_like %h=humidity %w=wind %p=precipitation %P=pressure
+weather_raw=$(curl -s "https://wttr.in/$city?format=%C|%f|%h|%w|%p|%P" 2>&1)
+
+# Parse từng field với delimiter |
+IFS='|' read -r condition_text feels_like humidity wind precip pressure <<< "$weather_raw"
+
+# Xác định class theo nhiệt độ
+if [ -z "$temp_value" ]; then
+    temp_class=""
+    temp_desc="Bình thường"
+elif [ "$temp_value" -lt 10 ]; then
+    temp_class="freezing"
+    temp_desc="Rất lạnh"
+elif [ "$temp_value" -lt 15 ]; then
+    temp_class="cold"
+    temp_desc="Lạnh"
+elif [ "$temp_value" -lt 20 ]; then
+    temp_class="cool"
+    temp_desc="Mát mẻ"
+elif [ "$temp_value" -lt 25 ]; then
+    temp_class=""
+    temp_desc="Dễ chịu"
+elif [ "$temp_value" -lt 30 ]; then
+    temp_class="warm"
+    temp_desc="Ấm áp"
+elif [ "$temp_value" -lt 35 ]; then
+    temp_class="hot"
+    temp_desc="Nóng"
+else
+    temp_class="veryhot"
+    temp_desc="Rất nóng"
+fi
 
 # https://fontawesome.com/icons?s=solid&c=weather
-# Normalize condition string for matching
-cond_key=$(echo "${weather[1]##*,}" | tr '[:upper:]' '[:lower:]' | sed -E 's/^\s+//; s/\s+$//')
-case "$cond_key" in
+case $(echo ${weather[1]##*,} | tr '[:upper:]' '[:lower:]') in
 "clear" | "sunny")
     condition=""
     ;;
@@ -141,7 +81,7 @@ case "$cond_key" in
 "fog" | "freezing fog")
     condition=""
     ;;
-"patchy rain possible" | "patchy light drizzle" | "light drizzle" | "patchy light rain" | "light rain" | "light rain shower" | "mist" | "rain" | "patchy rain nearby")
+"patchy rain possible" | "patchy light drizzle" | "light drizzle" | "patchy light rain" | "light rain" | "light rain shower" | "mist" | "rain")
     condition="󰼳"
     ;;
 "moderate rain at times" | "moderate rain" | "heavy rain at times" | "heavy rain" | "moderate or heavy rain shower" | "torrential rain shower" | "rain shower")
@@ -161,49 +101,23 @@ case "$cond_key" in
     ;;
 *)
     condition=""
+    echo -e "{\"text\":\""$condition"\", \"alt\":\""${weather[0]}"\", \"tooltip\":\""${weather[0]}: $temperature ${weather[1]}"\"}"
     ;;
 esac
 
-# If still unknown, try substring heuristics to pick a reasonable icon
-if [ "$condition" = "" ]; then
-    if echo "$cond_key" | grep -q "rain\|drizzle\|shower"; then
-        condition="󰼳"
-    elif echo "$cond_key" | grep -q "heavy rain\|torrential"; then
-        condition=""
-    elif echo "$cond_key" | grep -q "snow"; then
-        condition="󰙿"
-    elif echo "$cond_key" | grep -q "sleet\|freezing\|ice"; then
-        condition="󰼴"
-    elif echo "$cond_key" | grep -q "thunder"; then
-        condition=""
-    elif echo "$cond_key" | grep -q "overcast"; then
-        condition=""
-    elif echo "$cond_key" | grep -q "cloud"; then
-        condition=""
-    elif echo "$cond_key" | grep -q "sunny\|clear"; then
-        condition=""
-    fi
-fi
+# Tạo tooltip
+tooltip="Location: $location_name\\n"
+tooltip+="Temp: $temperature ($temp_desc)\\n"
+tooltip+="Feels like: $feels_like\\n"
+tooltip+="Humidity: $humidity\\n"
+tooltip+="Wind: $wind\\n"
+tooltip+="Rain: $precip\\n"
+tooltip+="Pressure: $pressure"
 
-#echo $temp $condition
+# Output JSON
+printf '{"text":"%s %s°C", "alt":"%s", "tooltip":"%s", "class":"%s"}\n' \
+    "$condition" "$temp_short" "$location_name" "$tooltip" "$temp_class"
 
-# Ensure temperature has a value; if empty, keep whatever is in weather[2] or N/A
-if [ -z "$temperature" ]; then
-    temperature="${weather[2]:-N/A}"
-fi
-
-cond_disp=$(echo "${weather[1]}" | sed -E 's/^\s+//; s/\s+$//')
-
-# Escape strings for safe JSON embedding (escape backslashes and double quotes)
-json_escape() {
-    printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/\"/\\\"/g'
-}
-
-text_json=$(json_escape "$temperature $condition")
-alt_json=$(json_escape "${weather[0]}")
-tooltip_json=$(json_escape "${weather[0]}: $temperature $cond_disp")
-
-printf '{"text":"%s", "alt":"%s", "tooltip":"%s"}\n' "$text_json" "$alt_json" "$tooltip_json"
-
-# Write a two-line cache with an actual newline between lines
-printf ' %s  \n%s %s\n' "$temperature" "$condition" "${weather[1]}" > "$HOME/.cache/.weather_cache"
+# Cache
+cached_weather=" $temperature  \\n$condition ${weather[1]}"
+echo -e "$cached_weather" > "$HOME/.cache/.weather_cache"

@@ -46,7 +46,6 @@
     "power-profiles-daemon",
     "pulseaudio#microphone",
     "keyboard-state",
-    "custom/nightlight",
     "custom/power",
     ],
 },

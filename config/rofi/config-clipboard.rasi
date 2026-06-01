@@ -1,12 +1,13 @@
 /* ---- 💫 https://github.com/JaKooLit 💫 ---- */
 /* Clipboard Config - Clipboard */
+/* --- Workspaces configuration by Xuan Truong --- */
 
 @import "~/.config/rofi/config.rasi"  
 
 /* ---- Window ---- */
 window {
-  width: inherit;
-  height: inherit;
+  width: 50%;
+  height: 60%;
 }
 
 /* ---- Mainbox ---- */
@@ -25,7 +26,7 @@ entry {
 listview {
   columns: 1;
   lines: 8;
-  fixed-height: true;
+  fixed-height: false;
   spacing: 6px;
   cycle: true;
 }
@@ -33,10 +34,11 @@ listview {
 /* ---- Elements ---- */
 element {
   orientation: horizontal;
+  spacing: 10px;
 }
 
 element-icon {
-  size: 0%;
+  size: 2em;
 }
 
 element-text {

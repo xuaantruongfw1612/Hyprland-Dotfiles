@@ -50,7 +50,6 @@
 	"tray",
 	"mpris", 
 	"group/audio",
-	"custom/nightlight",
 	"custom/separator#dot-line",
 	"group/status",
 	],

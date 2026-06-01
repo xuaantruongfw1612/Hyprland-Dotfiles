@@ -4,7 +4,7 @@
 # Screenshots scripts
 
 # variables
-time=$(date "+%d%m%y_%Hh%Mm%Ss%3Nms")
+time=$(date "+%Y%m%d_%Hh%Mm%Ss%3Nms")
 file="screenshot_${time}.png"
 dir="$(xdg-user-dir PICTURES)/Screenshots"
 
@@ -116,7 +116,7 @@ shotarea() {
     region=$(slurp -d "$frozen")
 
     if [[ -n "$region" ]]; then
-        current_time=$(date "+%d%m%y_%Hh%Mm%Ss%3Nms")
+        current_time=$(date "+%Y%m%d_%Hh%Mm%Ss%3Nms")
         current_file="screenshot_${current_time}.png"
 
         # Tách giá trị từ region

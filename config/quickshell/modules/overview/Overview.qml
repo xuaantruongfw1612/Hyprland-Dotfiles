@@ -17,7 +17,7 @@ Scope {
     
     Variants {
         id: overviewVariants
-        model: Quickshell.screens.filter(s => Hyprland.monitorFor(s).id === Hyprland.focusedMonitor?.id)
+        model: Quickshell.screens
         PanelWindow {
             id: root
             required property var modelData

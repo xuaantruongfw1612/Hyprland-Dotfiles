@@ -31,7 +31,6 @@
     
 "modules-right": [
 	"idle_inhibitor",
-	"custom/nightlight",
 	"group/notify",
 	],
 }
