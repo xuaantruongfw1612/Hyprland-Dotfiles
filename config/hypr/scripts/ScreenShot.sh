@@ -1,6 +1,6 @@
 #!/bin/bash
 # /* ---- 💫 https://github.com/xuantruong1612 💫 ---- */  ##
-# xuantruong config
+# Xuan Truong config
 # Screenshots scripts
 
 # variables
